@@ -1,0 +1,7 @@
+psutil
+keyboard
+pyautogui
+Pillow
+mss
+customtkinter
+requests
