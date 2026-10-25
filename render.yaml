@@ -1,11 +1,13 @@
 services:
   - type: web
-    name: airbnb-vietnam-booking
+    name: airbnb-vietnam
     env: node
     plan: free
     buildCommand: npm run build
     startCommand: npm run start
     envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
       - key: NODE_ENV
         value: production
       - key: PORT
