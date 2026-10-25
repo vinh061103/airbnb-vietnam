@@ -1,3 +1,1148 @@
-// 20 listings seed data
-const { INITIAL_LISTINGS } = require('../frontend/src/data/initialData.js');
+const INITIAL_LISTINGS = [
+  {
+    "id": 101,
+    "host_id": 1,
+    "title": "Mây Lang Thang Villa - View Thung Lũng Rừng Thông Tuyệt Đẹp",
+    "property_type": "Biệt thự",
+    "category": "nature",
+    "city": "Đà Lạt",
+    "address": "Đường Khởi Nghĩa Bắc Sơn, Phường 10, TP. Đà Lạt, Lâm Đồng",
+    "capacity": 6,
+    "bedrooms": 3,
+    "beds": 4,
+    "baths": 3,
+    "base_price": 1850000,
+    "status": "Published",
+    "rating": 4.96,
+    "reviews_count": 38,
+    "is_featured": true,
+    "description": "Nằm ẩn mình trên triền đồi với tầm nhìn ngoạn mục bao trọn thung lũng thông xanh và săn mây mỗi sớm mai. Biệt thự thiết kế theo phong cách Bắc Âu ấm cúng, nội thất gỗ tự nhiên cao cấp, lò sưởi ấm cúng và sân nướng BBQ ngắm sao đêm lung linh.",
+    "cover_image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "tv",
+      "parking",
+      "bbq",
+      "bathtub",
+      "balcony"
+    ],
+    "host": {
+      "name": "Nguyễn Văn An",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 102,
+    "host_id": 2,
+    "title": "An Hải Seaview Penthouse - Hồ Bơi Vô Cực Ngắm Hoàng Hôn",
+    "property_type": "Căn hộ Penthouse",
+    "category": "beach",
+    "city": "Phú Quốc",
+    "address": "Trần Hưng Đạo, Dương Đông, TP. Phú Quốc, Kiên Giang",
+    "capacity": 4,
+    "bedrooms": 2,
+    "beds": 2,
+    "baths": 2,
+    "base_price": 2450000,
+    "status": "Published",
+    "rating": 4.92,
+    "reviews_count": 64,
+    "is_featured": true,
+    "description": "Căn Penthouse tầng 22 với ban công trải dài ngắm trọn biển Bãi Trường và hoàng hôn tím biếc nổi tiếng của đảo ngọc. Hồ bơi riêng ngoài trời view panorama, quầy bar nhỏ và thiết kế kính chạm sàn mang lại cảm giác nghỉ dưỡng đỉnh cao.",
+    "cover_image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "tv",
+      "pool",
+      "parking",
+      "washer",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 103,
+    "host_id": 2,
+    "title": "Phố Cổ Hoi An Riverside Retreat - Kiến Trúc Đông Dương Xanh Mát",
+    "property_type": "Nhà phố cổ",
+    "category": "romantic",
+    "city": "Hội An",
+    "address": "Đường Nguyễn Tri Phương, Cẩm Nam, TP. Hội An, Quảng Nam",
+    "capacity": 5,
+    "bedrooms": 2,
+    "beds": 3,
+    "baths": 2,
+    "base_price": 1350000,
+    "status": "Published",
+    "rating": 4.88,
+    "reviews_count": 51,
+    "is_featured": false,
+    "description": "Nằm sát bên dòng sông Hoài thơ mộng, cách Chùa Cầu chỉ 7 phút đi bộ. Căn nhà phong cách Indochine với sân vườn nhiệt đới, đèn lồng thủ công, giếng trời đón nắng tự nhiên và xe đạp miễn phí dạo quanh phố cổ.",
+    "cover_image": "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "tv",
+      "parking",
+      "washer",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 104,
+    "host_id": 1,
+    "title": "The Opera View Studio - Căn Hộ Nghệ Thuật Trung Tâm Quận 1",
+    "property_type": "Studio",
+    "category": "city",
+    "city": "Hồ Chí Minh",
+    "address": "Đồng Khởi, Bến Nghé, Quận 1, TP. Hồ Chí Minh",
+    "capacity": 2,
+    "bedrooms": 1,
+    "beds": 1,
+    "baths": 1,
+    "base_price": 1100000,
+    "status": "Published",
+    "rating": 4.98,
+    "reviews_count": 92,
+    "is_featured": true,
+    "description": "Trải nghiệm nhịp sống sôi động giữa trung tâm Sài Gòn với căn studio thiết kế tối giản sang trọng. Ban công view thẳng Nhà hát Thành phố, đầy đủ tiện nghi cho cả chuyến công tác lẫn du lịch khám phá ẩm thực.",
+    "cover_image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "tv",
+      "washer"
+    ],
+    "host": {
+      "name": "Nguyễn Văn An",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 105,
+    "host_id": 2,
+    "title": "Sa Pa Cloud Haven Ecolodge - Nhà Gỗ Pơ Mu Giữa Ruộng Bậc Thang",
+    "property_type": "Bungalow",
+    "category": "nature",
+    "city": "Sa Pa",
+    "address": "Bản Tả Van, Thị xã Sa Pa, Lào Cai",
+    "capacity": 4,
+    "bedrooms": 2,
+    "beds": 2,
+    "baths": 1,
+    "base_price": 1600000,
+    "status": "Published",
+    "rating": 4.94,
+    "reviews_count": 45,
+    "is_featured": false,
+    "description": "Bungalow gỗ tự nhiên nhìn thẳng ra thung lũng Mường Hoa và những thửa ruộng bậc thang kỳ vĩ. Không khí trong lành, sương mờ bảng lảng cùng trải nghiệm thưởng trà ngắm đỉnh Fansipan hùng vĩ.",
+    "cover_image": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "kitchen",
+      "parking",
+      "bbq",
+      "bathtub",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 106,
+    "host_id": 2,
+    "title": "Vũng Tàu Infinity Sunset Villa - Bể Bơi Tràn Bờ View Biển Bãi Trước",
+    "property_type": "Biệt thự biển",
+    "category": "pool",
+    "city": "Vũng Tàu",
+    "address": "Đường Trần Phú, Phường 5, TP. Vũng Tàu, Bà Rịa - Vũng Tàu",
+    "capacity": 10,
+    "bedrooms": 4,
+    "beds": 6,
+    "baths": 4,
+    "base_price": 3600000,
+    "status": "Published",
+    "rating": 4.89,
+    "reviews_count": 73,
+    "is_featured": true,
+    "description": "Biệt thự tựa lưng vào núi Nhỏ, mặt hướng ra đại dương xanh thẳm. Hồ bơi nước tràn sát mép biển, dàn karaoke gia đình hiện đại, khu BBQ tiệc ngoài trời thích hợp tụ họp gia đình và nhóm bạn bè cuối tuần.",
+    "cover_image": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "tv",
+      "pool",
+      "parking",
+      "bbq",
+      "washer",
+      "bathtub",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 107,
+    "host_id": 1,
+    "title": "The Kupid Hill Homestay - Căn Phòng Kính View Đồi Thông Lãng Mạn",
+    "property_type": "Homestay",
+    "category": "romantic",
+    "city": "Đà Lạt",
+    "address": "Đường Đặng Thái Thân, Phường 3, TP. Đà Lạt, Lâm Đồng",
+    "capacity": 2,
+    "bedrooms": 1,
+    "beds": 1,
+    "baths": 1,
+    "base_price": 950000,
+    "status": "Published",
+    "rating": 4.95,
+    "reviews_count": 53,
+    "is_featured": true,
+    "description": "Phòng ngủ với vách kính lớn hướng thẳng ra thung lũng thông reo. Buổi sáng ánh nắng vàng len lỏi sương sớm, bồn tắm ngâm thảo mộc thư thái và góc đọc sách tĩnh lặng đậm chất Đà Lạt.",
+    "cover_image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "kitchen",
+      "parking",
+      "bathtub",
+      "balcony"
+    ],
+    "host": {
+      "name": "Nguyễn Văn An",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 108,
+    "host_id": 2,
+    "title": "Sunset Sanato Oceanfront Villa - Lối Đi Riêng Ra Biển Cát Trắng",
+    "property_type": "Biệt thự biển",
+    "category": "beach",
+    "city": "Phú Quốc",
+    "address": "Bãi Trường, Dương Tơ, TP. Phú Quốc, Kiên Giang",
+    "capacity": 8,
+    "bedrooms": 4,
+    "beds": 4,
+    "baths": 4,
+    "base_price": 4200000,
+    "status": "Published",
+    "rating": 4.97,
+    "reviews_count": 88,
+    "is_featured": true,
+    "description": "Biệt thự nghỉ dưỡng 5 sao nằm ngay bãi biển ngắm hoàng hôn đẹp nhất Phú Quốc. Bể bơi riêng sân vườn rộng lớn, chỉ 20 bước chân chạm mép sóng đại dương trong vắt.",
+    "cover_image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "tv",
+      "pool",
+      "parking",
+      "bbq",
+      "washer",
+      "bathtub",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 109,
+    "host_id": 2,
+    "title": "Hội An Silk River Villa - Hồ Bơi Riêng Nổi Ven Sông Thu Bồn",
+    "property_type": "Biệt thự",
+    "category": "pool",
+    "city": "Hội An",
+    "address": "Đường Cửa Đại, Phường Cẩm Châu, TP. Hội An, Quảng Nam",
+    "capacity": 6,
+    "bedrooms": 3,
+    "beds": 3,
+    "baths": 3,
+    "base_price": 2100000,
+    "status": "Published",
+    "rating": 4.91,
+    "reviews_count": 42,
+    "is_featured": false,
+    "description": "Biệt thự riêng tư có hồ bơi ngắm dòng sông Thu Bồn hiền hòa. Cung cấp thuyền kayak miễn phí khám phá rừng dừa Bảy Mẫu và trà chiều thanh mát bên hồ sen.",
+    "cover_image": "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "tv",
+      "pool",
+      "parking",
+      "bbq",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 110,
+    "host_id": 1,
+    "title": "The Moonlight Hanoi Old Quarter Loft - Duplex Gỗ Giữa Phố Cổ",
+    "property_type": "Căn hộ Duplex",
+    "category": "city",
+    "city": "Hà Nội",
+    "address": "Hàng Buồm, Phường Hàng Buồm, Quận Hoàn Kiếm, Hà Nội",
+    "capacity": 3,
+    "bedrooms": 1,
+    "beds": 2,
+    "baths": 1,
+    "base_price": 890000,
+    "status": "Published",
+    "rating": 4.93,
+    "reviews_count": 115,
+    "is_featured": true,
+    "description": "Căn hộ Duplex gác lửng kiến trúc Pháp cổ kết hợp phong cách Rustic hiện đại. Vị trí vàng cách Hồ Gươm 3 phút đi bộ, bao quanh bởi thiên đường ẩm thực đường phố Hà Nội nghìn năm văn hiến.",
+    "cover_image": "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "tv",
+      "washer"
+    ],
+    "host": {
+      "name": "Nguyễn Văn An",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 111,
+    "host_id": 2,
+    "title": "Danang Oceanfront Suite - View Trực Diện Biển Mỹ Khê Xanh Ngắt",
+    "property_type": "Căn hộ",
+    "category": "beach",
+    "city": "Đà Nẵng",
+    "address": "Võ Nguyên Giáp, Phước Mỹ, Quận Sơn Trà, TP. Đà Nẵng",
+    "capacity": 4,
+    "bedrooms": 2,
+    "beds": 2,
+    "baths": 2,
+    "base_price": 1550000,
+    "status": "Published",
+    "rating": 4.96,
+    "reviews_count": 76,
+    "is_featured": true,
+    "description": "Căn hộ cao cấp tầng 26 ngắm trọn vẹn bãi biển Mỹ Khê - một trong những bãi biển quyến rũ nhất hành tinh. Đầy đủ tiện ích hồ bơi tầng thượng, phòng gym và nhà hàng hải sản dưới sảnh.",
+    "cover_image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "tv",
+      "pool",
+      "parking",
+      "washer",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 112,
+    "host_id": 2,
+    "title": "Sa Pa Jade Mountain Chalet - Ban Công View Đỉnh Fansipan Hùng Vĩ",
+    "property_type": "Chalet gỗ",
+    "category": "nature",
+    "city": "Sa Pa",
+    "address": "Đường Mường Hoa, Thị xã Sa Pa, Lào Cai",
+    "capacity": 6,
+    "bedrooms": 3,
+    "beds": 3,
+    "baths": 2,
+    "base_price": 2300000,
+    "status": "Published",
+    "rating": 4.98,
+    "reviews_count": 61,
+    "is_featured": true,
+    "description": "Chalet phong cách Thụy Sĩ giữa lòng Tây Bắc. Tường kính chạm trần nhìn thẳng ra đỉnh núi Fansipan tuyết phủ mờ ảo, lò sưởi củi thông và bể sục jacuzzi nước nóng ngắm hoàng hôn núi rừng.",
+    "cover_image": "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "kitchen",
+      "parking",
+      "bbq",
+      "bathtub",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 113,
+    "host_id": 2,
+    "title": "Tràng An Lotus Heritage Villa - Nhà Cổ Bắc Bộ Giữa Đầm Sen Ninh Bình",
+    "property_type": "Biệt thự di sản",
+    "category": "nature",
+    "city": "Ninh Bình",
+    "address": "Thôn Khê Hạ, Xã Ninh Xuân, Huyện Hoa Lư, Ninh Bình",
+    "capacity": 6,
+    "bedrooms": 2,
+    "beds": 3,
+    "baths": 2,
+    "base_price": 1450000,
+    "status": "Published",
+    "rating": 4.92,
+    "reviews_count": 37,
+    "is_featured": false,
+    "description": "Trải nghiệm không gian làng quê Việt Nam thanh bình bên những dãy núi đá vôi kỳ vĩ của di sản Tràng An. Vườn sen thơm ngát, bữa sáng cơm cháy thơm giòn và xe đạp miễn phí khám phá Hang Múa.",
+    "cover_image": "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "parking",
+      "bbq",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 114,
+    "host_id": 2,
+    "title": "Nha Trang Marina Sky Villa - Du Thuyền & Hồ Bơi Vô Cực Trên Cao",
+    "property_type": "Biệt thự cao cấp",
+    "category": "pool",
+    "city": "Nha Trang",
+    "address": "Đường Phạm Văn Đồng, Vĩnh Hòa, TP. Nha Trang, Khánh Hòa",
+    "capacity": 8,
+    "bedrooms": 3,
+    "beds": 4,
+    "baths": 3,
+    "base_price": 3100000,
+    "status": "Published",
+    "rating": 4.97,
+    "reviews_count": 59,
+    "is_featured": true,
+    "description": "Tọa lạc sát bến du thuyền quốc tế Ana Marina với view ôm trọn vịnh biển Nha Trang thơ mộng. Hồ bơi nước tràn trên tầng cao, thiết kế nội thất Ý cao cấp và quầy BBQ ngắm pháo hoa rực rỡ.",
+    "cover_image": "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "tv",
+      "pool",
+      "parking",
+      "bbq",
+      "washer",
+      "bathtub",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 115,
+    "host_id": 2,
+    "title": "Quy Nhơn Cliffside Horizon - Biệt Thự Vách Đá Ôm Trọn Biển Kỳ Co",
+    "property_type": "Biệt thự biển",
+    "category": "beach",
+    "city": "Quy Nhơn",
+    "address": "Bãi Bàng, Xã Nhơn Lý, TP. Quy Nhơn, Bình Định",
+    "capacity": 6,
+    "bedrooms": 3,
+    "beds": 3,
+    "baths": 3,
+    "base_price": 2800000,
+    "status": "Published",
+    "rating": 4.95,
+    "reviews_count": 48,
+    "is_featured": true,
+    "description": "Nằm cheo leo trên vách đá ngắm bình minh đầu tiên của đất nước. Nước biển xanh ngọc bích như Maldives, cầu kính ngắm rạn san hô tự nhiên và đầu bếp phục vụ hải sản tươi sống tại chỗ.",
+    "cover_image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "tv",
+      "pool",
+      "parking",
+      "bbq",
+      "bathtub",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 116,
+    "host_id": 1,
+    "title": "Dalat Pine Glamping Dome - Lều Vòm Trăng Sao Đỉnh Đồi Đa Phú",
+    "property_type": "Glamping cao cấp",
+    "category": "romantic",
+    "city": "Đà Lạt",
+    "address": "Đồi Đa Phú, Phường 7, TP. Đà Lạt, Lâm Đồng",
+    "capacity": 2,
+    "bedrooms": 1,
+    "beds": 1,
+    "baths": 1,
+    "base_price": 1150000,
+    "status": "Published",
+    "rating": 4.99,
+    "reviews_count": 83,
+    "is_featured": true,
+    "description": "Căn lều vòm geodesic tiêu chuẩn khách sạn 4 sao với nóc kính trong suốt ngắm bầu trời đầy sao. Thưởng thức rượu vang bên bếp lửa ấm cúng và săn biển mây bồng bềnh ngay trước cửa phòng lúc bình minh.",
+    "cover_image": "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "parking",
+      "bbq",
+      "bathtub",
+      "balcony"
+    ],
+    "host": {
+      "name": "Nguyễn Văn An",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 117,
+    "host_id": 1,
+    "title": "Saigon River Panorama - Căn Hộ Landmark View Sông Sài Gòn Lung Linh",
+    "property_type": "Căn hộ",
+    "category": "city",
+    "city": "Hồ Chí Minh",
+    "address": "Nguyễn Hữu Cảnh, Phường 22, Quận Bình Thạnh, TP. Hồ Chí Minh",
+    "capacity": 4,
+    "bedrooms": 2,
+    "beds": 2,
+    "baths": 2,
+    "base_price": 1750000,
+    "status": "Published",
+    "rating": 4.94,
+    "reviews_count": 104,
+    "is_featured": false,
+    "description": "Căn hộ góc tầng 38 ngắm trọn tòa Landmark 81 sừng sững và khúc cong thơ mộng của sông Sài Gòn. Công viên ven sông 14ha, hồ bơi vô cực và trung tâm thương mại Vincom ngay dưới chân tháp.",
+    "cover_image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "tv",
+      "pool",
+      "parking",
+      "washer",
+      "balcony"
+    ],
+    "host": {
+      "name": "Nguyễn Văn An",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 118,
+    "host_id": 2,
+    "title": "Ba Vì Forest Pine Chalet - Nhà Gỗ Giữa Rừng Thông Xanh Mát",
+    "property_type": "Nhà gỗ",
+    "category": "nature",
+    "city": "Hà Nội",
+    "address": "Xã Vân Hòa, Huyện Ba Vì, TP. Hà Nội",
+    "capacity": 8,
+    "bedrooms": 3,
+    "beds": 4,
+    "baths": 3,
+    "base_price": 2500000,
+    "status": "Published",
+    "rating": 4.9,
+    "reviews_count": 36,
+    "is_featured": false,
+    "description": "Chỉ 50 phút lái xe từ trung tâm thủ đô Hà Nội để bước vào thiên đường rừng thông Ba Vì mát lạnh quanh năm. Bể bơi riêng nước ngầm trong vắt, sân đốt lửa trại và tiệc nướng BBQ ngắm đồi thông.",
+    "cover_image": "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "kitchen",
+      "pool",
+      "parking",
+      "bbq",
+      "bathtub",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 119,
+    "host_id": 2,
+    "title": "Phu Quoc Bamboo Eco Bungalow - Ẩn Mình Bên Rừng Dừa Bãi Sao",
+    "property_type": "Bungalow",
+    "category": "beach",
+    "city": "Phú Quốc",
+    "address": "Ấp 4, Bãi Sao, An Thới, TP. Phú Quốc, Kiên Giang",
+    "capacity": 3,
+    "bedrooms": 1,
+    "beds": 2,
+    "baths": 1,
+    "base_price": 1250000,
+    "status": "Published",
+    "rating": 4.93,
+    "reviews_count": 55,
+    "is_featured": false,
+    "description": "Bungalow tre tự nhiên độc đáo giữa khu vườn dừa nhiệt đới cách Bãi Sao cát trắng mịn chỉ 150m. Không gian thoáng đãng, võng đu thư giãn dưới tán dừa và những món ngon hải sản địa phương tươi roi rói.",
+    "cover_image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "parking",
+      "bbq",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 120,
+    "host_id": 2,
+    "title": "Huế Royal Garden Heritage Home - Nhà Vườn Phong Cách Hoàng Cung",
+    "property_type": "Nhà vườn cổ",
+    "category": "romantic",
+    "city": "Huế",
+    "address": "Đường Nguyễn Chí Diễu, Thuận Thành, TP. Huế, Thừa Thiên Huế",
+    "capacity": 4,
+    "bedrooms": 2,
+    "beds": 2,
+    "baths": 2,
+    "base_price": 1100000,
+    "status": "Published",
+    "rating": 4.96,
+    "reviews_count": 67,
+    "is_featured": false,
+    "description": "Ngôi nhà rường truyền thống đậm chất Cố Đô nằm nép mình bên vườn bưởi thanh trà ngát hương. Cách Đại Nội chỉ 500m, trải nghiệm trà cung đình thanh tao, ngâm chân thảo dược và không gian tĩnh mịch hoài niệm.",
+    "cover_image": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "parking",
+      "bathtub",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 121,
+    "host_id": 2,
+    "title": "The Grand Seafront Manor - Biệt Thự Triệu Đô Sát Biển An Viên",
+    "property_type": "Biệt thự cao cấp",
+    "category": "villa",
+    "city": "Nha Trang",
+    "address": "Khu biệt thự An Viên, Vĩnh Tường, TP. Nha Trang, Khánh Hòa",
+    "capacity": 12,
+    "bedrooms": 5,
+    "beds": 6,
+    "baths": 5,
+    "base_price": 6500000,
+    "status": "Published",
+    "rating": 4.99,
+    "reviews_count": 42,
+    "is_featured": true,
+    "description": "Biệt thự nghỉ dưỡng siêu sang tọa lạc tại bán đảo An Viên với tầm nhìn ôm trọn vịnh Nha Trang. Hồ bơi vô cực dát đá tự nhiên, rạp chiếu phim gia đình hiện đại, quầy bar hầm rượu và dịch vụ quản gia cao cấp phục vụ 24/7.",
+    "cover_image": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "tv",
+      "pool",
+      "parking",
+      "bbq",
+      "washer",
+      "bathtub",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 122,
+    "host_id": 2,
+    "title": "Sunset Royal Cliff Villa - Dinh Thự Hoàng Hôn Mũi Ông Đội",
+    "property_type": "Biệt thự cao cấp",
+    "category": "villa",
+    "city": "Phú Quốc",
+    "address": "Mũi Ông Đội, An Thới, TP. Phú Quốc, Kiên Giang",
+    "capacity": 10,
+    "bedrooms": 4,
+    "beds": 5,
+    "baths": 4,
+    "base_price": 7200000,
+    "status": "Published",
+    "rating": 4.98,
+    "reviews_count": 57,
+    "is_featured": true,
+    "description": "Dinh thự độc bản tọa lạc trên vách đá Mũi Ông Đội - nơi duy nhất tại đảo ngọc chiêm ngưỡng được cả bình minh lẫn hoàng hôn trên biển. Bể bơi vô cực nước mặn sát mép vực, bồn tắm sục jacuzzi ngoài trời và cầu tàu riêng đón du thuyền.",
+    "cover_image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "tv",
+      "pool",
+      "parking",
+      "bbq",
+      "washer",
+      "bathtub",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 123,
+    "host_id": 2,
+    "title": "Da Lat Pine Palace Mansion - Biệt Thự Cổ Điển Pháp Giữa Rừng Thông",
+    "property_type": "Biệt thự cao cấp",
+    "category": "villa",
+    "city": "Đà Lạt",
+    "address": "Đường Trần Hưng Đạo, Phường 10, TP. Đà Lạt, Lâm Đồng",
+    "capacity": 10,
+    "bedrooms": 4,
+    "beds": 6,
+    "baths": 4,
+    "base_price": 4800000,
+    "status": "Published",
+    "rating": 4.97,
+    "reviews_count": 64,
+    "is_featured": true,
+    "description": "Biệt thự kiến trúc Pháp cổ điển được bảo tồn nguyên vẹn giữa đồi thông thơ mộng. Khu vườn hoa cẩm tú cầu và hồng Pháp rực rỡ, lò sưởi đá cẩm thạch sang trọng, đàn piano đại dương cầm và bàn tiệc nến lãng mạn.",
+    "cover_image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "tv",
+      "parking",
+      "bbq",
+      "bathtub",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 124,
+    "host_id": 2,
+    "title": "Danang Royal Lotus Beachside Villa - Biệt Thự Nghỉ Dưỡng Mỹ Khê",
+    "property_type": "Biệt thự cao cấp",
+    "category": "villa",
+    "city": "Đà Nẵng",
+    "address": "Đường Trường Sa, Khuê Mỹ, Quận Ngũ Hành Sơn, TP. Đà Nẵng",
+    "capacity": 8,
+    "bedrooms": 4,
+    "beds": 4,
+    "baths": 4,
+    "base_price": 5500000,
+    "status": "Published",
+    "rating": 4.96,
+    "reviews_count": 51,
+    "is_featured": true,
+    "description": "Nằm trong quần thể resort biệt lập ven biển Mỹ Khê Đà Nẵng. Sở hữu bể bơi sân vườn nhiệt đới xanh mát, nội thất gỗ óc chó cao cấp và chỉ 1 phút đi bộ ra bãi cát vàng mịn màng cùng làn nước biển ấm áp.",
+    "cover_image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "tv",
+      "pool",
+      "parking",
+      "bbq",
+      "washer",
+      "bathtub",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 125,
+    "host_id": 1,
+    "title": "Nhà Của Gió Homestay - Góc Ban Công Ngắm Sương & Đèn Lồng Đêm",
+    "property_type": "Homestay ấm cúng",
+    "category": "homestay",
+    "city": "Đà Lạt",
+    "address": "Đường Hoàng Hoa Thám, Phường 10, TP. Đà Lạt, Lâm Đồng",
+    "capacity": 3,
+    "bedrooms": 1,
+    "beds": 2,
+    "baths": 1,
+    "base_price": 650000,
+    "status": "Published",
+    "rating": 4.95,
+    "reviews_count": 78,
+    "is_featured": true,
+    "description": "Căn homestay gác mái nhỏ xinh ngập tràn ánh nắng và hoa cúc họa mi. Có gian bếp củi thơm lừng, trà nóng thảo mộc và không gian cực kỳ ấm áp cho các bạn trẻ hoặc cặp đôi tìm chốn bình yên.",
+    "cover_image": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "kitchen",
+      "parking",
+      "bbq",
+      "balcony"
+    ],
+    "host": {
+      "name": "Nguyễn Văn An",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 126,
+    "host_id": 2,
+    "title": "An Nhiên Riverside Homestay - Mái Ngói Rêu Phong Bên Sông Hoài",
+    "property_type": "Homestay ấm cúng",
+    "category": "homestay",
+    "city": "Hội An",
+    "address": "Đường Bạch Đằng, Phường Minh An, TP. Hội An, Quảng Nam",
+    "capacity": 4,
+    "bedrooms": 2,
+    "beds": 2,
+    "baths": 1,
+    "base_price": 750000,
+    "status": "Published",
+    "rating": 4.93,
+    "reviews_count": 62,
+    "is_featured": false,
+    "description": "Ngôi nhà mộc mạc lưu giữ nét xưa phố Hội với tường vàng hoa giấy, sân gạch đỏ và hương trầm thơm dịu. Chủ nhà nấu bữa cơm gia đình đậm đà xứ Quảng và tặng kèm nón lá dạo phố.",
+    "cover_image": "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "ac",
+      "kitchen",
+      "parking",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 127,
+    "host_id": 2,
+    "title": "Bản Lác Mộc Châu Cozy Homestay - Nhà Sàn Gỗ Giữa Đồi Chè Trái Tim",
+    "property_type": "Homestay ấm cúng",
+    "category": "homestay",
+    "city": "Mộc Châu",
+    "address": "Bản Áng, Xã Đông Sang, Huyện Mộc Châu, Sơn La",
+    "capacity": 5,
+    "bedrooms": 2,
+    "beds": 3,
+    "baths": 1,
+    "base_price": 580000,
+    "status": "Published",
+    "rating": 4.96,
+    "reviews_count": 85,
+    "is_featured": true,
+    "description": "Homestay nhà sàn gỗ pơ mu ấm cúng nép bên rừng thông và thung lũng đồi chè xanh mướt. Đêm quây quần nướng ngô khoai bên bếp than hồng ấm áp, thưởng thức gà đồi nướng mắc khén thơm lừng.",
+    "cover_image": "https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "kitchen",
+      "parking",
+      "bbq",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  },
+  {
+    "id": 128,
+    "host_id": 2,
+    "title": "Sa Pa Bản Mây Warm Nest - Tổ Ấm Gỗ Thổ Cẩm Ngắm Ruộng Bậc Thang",
+    "property_type": "Homestay ấm cúng",
+    "category": "homestay",
+    "city": "Sa Pa",
+    "address": "Thôn Giàng Tả Chải, Xã Tả Van, Thị xã Sa Pa, Lào Cai",
+    "capacity": 4,
+    "bedrooms": 1,
+    "beds": 2,
+    "baths": 1,
+    "base_price": 700000,
+    "status": "Published",
+    "rating": 4.98,
+    "reviews_count": 94,
+    "is_featured": true,
+    "description": "Căn nhà gỗ mộc mạc trang trí thổ cẩm H'Mông rực rỡ, chăn bông êm ái, bồn tắm lá thuốc Dao Đỏ ngắm nhìn mây luồn qua khung cửa sổ nhỏ xinh và những thửa ruộng bậc thang kỳ vĩ.",
+    "cover_image": "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=800&q=80"
+    ],
+    "amenities": [
+      "wifi",
+      "kitchen",
+      "parking",
+      "bbq",
+      "bathtub",
+      "balcony"
+    ],
+    "host": {
+      "name": "Lê Minh Thảo",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+      "isSuperhost": true,
+      "badge": "Superhost"
+    }
+  }
+];
 module.exports = { INITIAL_LISTINGS };
