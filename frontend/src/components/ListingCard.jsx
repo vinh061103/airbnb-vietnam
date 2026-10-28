@@ -23,7 +23,7 @@ export default function ListingCard({ listing }) {
 
   const handleCardClick = () => {
     setSelectedListingId(listing.id);
-    setCurrentView("room-detail");
+    setCurrentView("room-detail", listing.id);
   };
 
   return (

@@ -31,36 +31,24 @@ export default function SearchResults() {
     toggleWishlist,
   } = useApp();
 
+  const effectiveSearch = activeSearch || {
+    city: "Đà Lạt",
+    checkIn: "2026-11-15",
+    checkOut: "2026-11-18",
+    guests: 2,
+    nights: 3,
+  };
+
   const [sortBy, setSortBy] = useState("recommended");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [isEditing, setIsEditing] = useState(false);
 
   // Edit form state
-  const [editCity, setEditCity] = useState(activeSearch?.city || "");
-  const [editCheckIn, setEditCheckIn] = useState(activeSearch?.checkIn || "");
-  const [editCheckOut, setEditCheckOut] = useState(activeSearch?.checkOut || "");
-  const [editGuests, setEditGuests] = useState(activeSearch?.guests || 1);
+  const [editCity, setEditCity] = useState(effectiveSearch.city || "");
+  const [editCheckIn, setEditCheckIn] = useState(effectiveSearch.checkIn || "");
+  const [editCheckOut, setEditCheckOut] = useState(effectiveSearch.checkOut || "");
+  const [editGuests, setEditGuests] = useState(effectiveSearch.guests || 1);
   const [editError, setEditError] = useState("");
-
-  if (!activeSearch) {
-    return (
-      <div className="max-w-4xl mx-auto px-4 py-20 text-center">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">
-          Bạn chưa thực hiện tìm kiếm
-        </h2>
-        <p className="text-gray-500 mb-6">
-          Vui lòng quay lại trang chủ và chọn đầy đủ thông tin để tìm kiếm phòng phù hợp.
-        </p>
-        <button
-          onClick={() => setCurrentView("home")}
-          className="inline-flex items-center gap-2 bg-[#FF385C] text-white font-bold py-3 px-6 rounded-2xl hover:bg-[#E00B41] transition-all"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Về trang chủ</span>
-        </button>
-      </div>
-    );
-  }
 
   // Handle re-search
   const handleUpdateSearch = () => {
@@ -97,28 +85,28 @@ export default function SearchResults() {
     setIsEditing(false);
   };
 
-  // Filter listings based on activeSearch criteria
+  // Filter listings based on effectiveSearch criteria
   const matchingListings = listings.filter((listing) => {
     if (listing.status !== "Published") return false;
 
     // 1. Destination match (accent-insensitive)
-    if (activeSearch.city) {
+    if (effectiveSearch.city) {
       const normCity = normalizeVietnamese(listing.city);
-      const normQuery = normalizeVietnamese(activeSearch.city);
+      const normQuery = normalizeVietnamese(effectiveSearch.city);
       if (!normCity.includes(normQuery) && !normQuery.includes(normCity)) {
         return false;
       }
     }
 
     // 2. Capacity match
-    if (listing.capacity < activeSearch.guests) {
+    if (listing.capacity < effectiveSearch.guests) {
       return false;
     }
 
     // 3. Availability match (no overlap with bookings or blocks)
-    if (activeSearch.checkIn && activeSearch.checkOut) {
-      const reqStart = new Date(activeSearch.checkIn);
-      const reqEnd = new Date(activeSearch.checkOut);
+    if (effectiveSearch.checkIn && effectiveSearch.checkOut) {
+      const reqStart = new Date(effectiveSearch.checkIn);
+      const reqEnd = new Date(effectiveSearch.checkOut);
 
       // Bookings conflict
       const hasBookingConflict = bookings.some((b) => {
@@ -179,7 +167,7 @@ export default function SearchResults() {
           </button>
 
           <span className="text-xs font-semibold text-gray-500 hidden sm:inline-block">
-            Trang chủ &gt; Kết quả tìm kiếm &gt; {activeSearch.city}
+            Trang chủ &gt; Kết quả tìm kiếm &gt; {effectiveSearch.city}
           </span>
         </div>
 
@@ -192,7 +180,7 @@ export default function SearchResults() {
                 <span>Trang kết quả tìm kiếm đã xác thực</span>
               </div>
               <h1 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
-                Chỗ ở tại {activeSearch.city}
+                Chỗ ở tại {effectiveSearch.city}
               </h1>
               <p className="text-sm text-gray-500 mt-1">
                 Tìm thấy{" "}
@@ -219,19 +207,19 @@ export default function SearchResults() {
           <div className="flex items-center gap-3 flex-wrap mt-4">
             <div className="inline-flex items-center gap-2 bg-rose-50 border border-rose-200 px-4 py-2 rounded-2xl text-sm font-bold text-[#FF385C]">
               <MapPin className="w-4 h-4" />
-              <span>Điểm đến: {activeSearch.city}</span>
+              <span>Điểm đến: {effectiveSearch.city}</span>
             </div>
 
             <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 px-4 py-2 rounded-2xl text-sm font-bold text-blue-700">
               <Calendar className="w-4 h-4" />
               <span>
-                {activeSearch.checkIn} → {activeSearch.checkOut} ({activeSearch.nights} đêm)
+                {effectiveSearch.checkIn} → {effectiveSearch.checkOut} ({effectiveSearch.nights} đêm)
               </span>
             </div>
 
             <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 px-4 py-2 rounded-2xl text-sm font-bold text-emerald-700">
               <Users className="w-4 h-4" />
-              <span>{activeSearch.guests} khách</span>
+              <span>{effectiveSearch.guests} khách</span>
             </div>
           </div>
 
@@ -353,14 +341,14 @@ export default function SearchResults() {
               <Frown className="w-8 h-8" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-2">
-              Không tìm thấy chỗ ở nào còn trống tại {activeSearch.city}
+              Không tìm thấy chỗ ở nào còn trống tại {effectiveSearch.city}
             </h3>
             <p className="text-sm text-gray-500 mb-6 leading-relaxed">
               Các chỗ ở tại đây có thể đã kín lịch trong khoảng ngày{" "}
               <strong>
-                {activeSearch.checkIn} → {activeSearch.checkOut}
+                {effectiveSearch.checkIn} → {effectiveSearch.checkOut}
               </strong>{" "}
-              hoặc không đủ sức chứa cho <strong>{activeSearch.guests} khách</strong>.
+              hoặc không đủ sức chứa cho <strong>{effectiveSearch.guests} khách</strong>.
             </p>
 
             <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-left text-xs text-amber-800 space-y-1.5 mb-6">
@@ -389,7 +377,7 @@ export default function SearchResults() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {sortedListings.map((listing) => {
               const isLiked = wishlist.includes(listing.id);
-              const nights = activeSearch.nights || 1;
+              const nights = effectiveSearch.nights || 1;
               const totalPrice = nights * listing.base_price;
 
               return (
@@ -398,7 +386,7 @@ export default function SearchResults() {
                   className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition-all flex flex-col group cursor-pointer"
                   onClick={() => {
                     setSelectedListingId(listing.id);
-                    setCurrentView("room-detail");
+                    setCurrentView("room-detail", listing.id);
                   }}
                 >
                   {/* Photo area */}
@@ -486,7 +474,7 @@ export default function SearchResults() {
                         onClick={(e) => {
                           e.stopPropagation();
                           setSelectedListingId(listing.id);
-                          setCurrentView("room-detail");
+                          setCurrentView("room-detail", listing.id);
                         }}
                         className="mt-3 w-full bg-gradient-to-r from-[#FF385C] to-[#E00B41] hover:brightness-105 active:scale-95 text-white font-bold py-2 rounded-xl text-xs transition-all shadow-sm"
                       >

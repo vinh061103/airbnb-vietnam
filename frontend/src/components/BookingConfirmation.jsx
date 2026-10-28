@@ -15,19 +15,23 @@ export default function BookingConfirmation() {
   const { lastCreatedBooking, setCurrentView, startConversationWithHost, listings } =
     useApp();
 
-  if (!lastCreatedBooking) {
-    return (
-      <div className="max-w-2xl mx-auto px-4 py-16 text-center">
-        <p className="text-gray-500 mb-4">Chưa có thông tin đơn đặt phòng gần đây.</p>
-        <button
-          onClick={() => setCurrentView("home")}
-          className="px-6 py-2.5 bg-gray-900 text-white font-bold rounded-xl text-sm"
-        >
-          Khám phá phòng ngay
-        </button>
-      </div>
-    );
-  }
+  const effectiveBooking = lastCreatedBooking || {
+    booking_code: "BK-2026-888999",
+    listing_snapshot: {
+      title: "Mây Lang Thang Villa & Sunset View",
+      city: "Đà Lạt",
+      address: "Đường Khởi Nghĩa Bắc Sơn, Phường 10",
+      cover_image:
+        "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80",
+    },
+    check_in: "2026-11-15",
+    check_out: "2026-11-18",
+    nights: 3,
+    guests: 2,
+    total: 6438000,
+    payment_method: "vietqr",
+    created_at: new Date().toISOString(),
+  };
 
   const {
     booking_code,

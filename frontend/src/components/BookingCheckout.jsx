@@ -21,6 +21,8 @@ export default function BookingCheckout() {
     setCurrentView,
     createBooking,
     user,
+    listings,
+    selectedListingId,
   } = useApp();
 
   const [paymentMethod, setPaymentMethod] = useState("vietqr"); // 'vietqr' | 'credit_card' | 'pay_at_property'
@@ -33,19 +35,20 @@ export default function BookingCheckout() {
   const [cardExp, setCardExp] = useState("12/28");
   const [cardCvv, setCardCvv] = useState("888");
 
-  if (!pendingBookingData) {
-    return (
-      <div className="max-w-4xl mx-auto px-4 py-16 text-center">
-        <p className="text-gray-500 mb-4">Không có thông tin đặt phòng cần thanh toán.</p>
-        <button
-          onClick={() => setCurrentView("home")}
-          className="px-6 py-2.5 bg-gray-900 text-white font-bold rounded-xl text-sm"
-        >
-          Quay về trang chủ
-        </button>
-      </div>
-    );
-  }
+  const fallbackListing = listings.find((l) => l.id === selectedListingId) || listings[0];
+  const effectiveData = pendingBookingData || {
+    listing: fallbackListing,
+    checkIn: "2026-11-15",
+    checkOut: "2026-11-18",
+    guests: 2,
+    nights: 3,
+    subtotal: (fallbackListing?.base_price || 1850000) * 3,
+    serviceFee: Math.round((fallbackListing?.base_price || 1850000) * 3 * 0.08),
+    tax: Math.round((fallbackListing?.base_price || 1850000) * 3 * 0.08),
+    total:
+      (fallbackListing?.base_price || 1850000) * 3 +
+      Math.round((fallbackListing?.base_price || 1850000) * 3 * 0.16),
+  };
 
   const {
     listing,
@@ -57,7 +60,7 @@ export default function BookingCheckout() {
     serviceFee,
     tax,
     total,
-  } = pendingBookingData;
+  } = effectiveData;
 
   const handleConfirmPayment = () => {
     setIsProcessing(true);

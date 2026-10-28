@@ -96,7 +96,7 @@ export default function App() {
         {currentView === "register" && <RegisterPage />}
 
         {/* CUSTOMER VIEWS */}
-        {role === "customer" && currentView !== "login" && currentView !== "register" && (
+        {!currentView.startsWith("host-") && currentView !== "login" && currentView !== "register" && (
           <>
             {currentView === "home" && (
               <div>
@@ -165,7 +165,7 @@ export default function App() {
         )}
 
         {/* HOST VIEWS */}
-        {role === "host" && currentView !== "login" && currentView !== "register" && (
+        {currentView.startsWith("host-") && currentView !== "login" && currentView !== "register" && (
           <>
             {currentView === "host-dashboard" && <HostDashboard />}
             {currentView === "host-listings" && <HostListings />}

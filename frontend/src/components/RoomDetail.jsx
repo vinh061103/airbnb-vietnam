@@ -57,7 +57,7 @@ export default function RoomDetail() {
     startConversationWithHost,
   } = useApp();
 
-  const listing = listings.find((l) => l.id === selectedListingId);
+  const listing = listings.find((l) => l.id === selectedListingId) || listings[0];
 
   // Form Booking state
   const tomorrow = new Date();

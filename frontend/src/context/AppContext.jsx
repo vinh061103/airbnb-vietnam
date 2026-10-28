@@ -4,14 +4,66 @@ import { INITIAL_LISTINGS, INITIAL_BOOKINGS, INITIAL_REVIEWS, INITIAL_MESSAGES, 
 
 const AppContext = createContext();
 
+const parseUrlToState = () => {
+  if (typeof window === "undefined") return { view: "home" };
+  const path = window.location.pathname.toLowerCase().replace(/\/$/, "");
+
+  if (path === "/login") return { view: "login" };
+  if (path === "/register") return { view: "register" };
+  if (path === "/search") return { view: "search-results" };
+
+  const roomMatch = path.match(/^\/rooms?\/([0-9]+)/);
+  if (roomMatch) {
+    return { view: "room-detail", id: Number(roomMatch[1]) };
+  }
+
+  if (path === "/checkout") return { view: "checkout" };
+  if (path === "/confirmation") return { view: "confirmation" };
+  if (path === "/my-bookings" || path === "/trips") return { view: "my-bookings" };
+  if (path === "/wishlist") return { view: "wishlist" };
+  if (path === "/messages") return { view: "messages" };
+
+  if (path === "/host" || path === "/host/dashboard") return { view: "host-dashboard" };
+  if (path === "/host/listings") return { view: "host-listings" };
+  if (path === "/host/new-listing") return { view: "host-new-listing" };
+  if (path === "/host/calendar") return { view: "host-calendar" };
+  if (path === "/host/reservations") return { view: "host-reservations" };
+
+  return { view: "home" };
+};
+
+const getUrlForView = (view, id) => {
+  switch (view) {
+    case "login": return "/login";
+    case "register": return "/register";
+    case "search-results": return "/search";
+    case "room-detail": return `/rooms/${id || 101}`;
+    case "checkout": return "/checkout";
+    case "confirmation": return "/confirmation";
+    case "my-bookings": return "/my-bookings";
+    case "wishlist": return "/wishlist";
+    case "messages": return "/messages";
+    case "host-dashboard": return "/host/dashboard";
+    case "host-listings": return "/host/listings";
+    case "host-new-listing": return "/host/new-listing";
+    case "host-calendar": return "/host/calendar";
+    case "host-reservations": return "/host/reservations";
+    case "home":
+    default: return "/";
+  }
+};
+
 export function AppProvider({ children }) {
+  const initialRoute = parseUrlToState();
+
   // Current user state (null if not logged in)
   const [user, setUser] = useState(() => {
     const saved = localStorage.getItem("airbnb_user");
-    return saved ? JSON.parse(saved) : null; // mặc định ban đầu là chưa đăng nhập hoặc dùng user đã lưu
+    return saved ? JSON.parse(saved) : null;
   });
 
   const [role, setRole] = useState(() => {
+    if (initialRoute.view.startsWith("host-")) return "host";
     const savedUser = localStorage.getItem("airbnb_user");
     if (savedUser) {
       try {
@@ -32,14 +84,59 @@ export function AppProvider({ children }) {
   });
   const [conversations, setConversations] = useState(INITIAL_MESSAGES);
 
-  // Navigation views
-  const [currentView, setCurrentView] = useState("home"); // home | search-results | room-detail | checkout | confirmation | my-bookings | wishlist | messages | login | register | host-dashboard | host-listings | host-new-listing | host-calendar | host-reservations
-  const [selectedListingId, setSelectedListingId] = useState(null);
+  // Navigation views synchronized with browser URL
+  const [currentView, setCurrentViewState] = useState(initialRoute.view);
+  const [selectedListingId, setSelectedListingIdState] = useState(initialRoute.id || 101);
   const [pendingBookingData, setPendingBookingData] = useState(null);
   const [lastCreatedBooking, setLastCreatedBooking] = useState(null);
 
   // Active submitted search criteria for Search Results Page
   const [activeSearch, setActiveSearch] = useState(null); // { city, checkIn, checkOut, guests, nights }
+
+  const setCurrentView = (view, optionalId) => {
+    const targetId = optionalId !== undefined ? optionalId : selectedListingId;
+    setCurrentViewState(view);
+    if (optionalId !== undefined) {
+      setSelectedListingIdState(optionalId);
+    }
+
+    if (view.startsWith("host-")) {
+      setRole("host");
+    } else if (["home", "search-results", "room-detail", "checkout", "confirmation", "my-bookings", "wishlist"].includes(view)) {
+      setRole("customer");
+    }
+
+    const targetUrl = getUrlForView(view, targetId);
+    if (typeof window !== "undefined" && window.location.pathname !== targetUrl) {
+      window.history.pushState({ view, id: targetId }, "", targetUrl);
+    }
+  };
+
+  const setSelectedListingId = (id) => {
+    setSelectedListingIdState(id);
+    if (currentView === "room-detail" && typeof window !== "undefined") {
+      const targetUrl = `/rooms/${id}`;
+      if (window.location.pathname !== targetUrl) {
+        window.history.pushState({ view: "room-detail", id }, "", targetUrl);
+      }
+    }
+  };
+
+  // Sync with browser back/forward buttons (popstate)
+  useEffect(() => {
+    const handlePopState = () => {
+      const { view, id } = parseUrlToState();
+      setCurrentViewState(view);
+      if (id) setSelectedListingIdState(id);
+      if (view.startsWith("host-")) {
+        setRole("host");
+      } else if (["home", "search-results", "room-detail", "checkout", "confirmation", "my-bookings", "wishlist"].includes(view)) {
+        setRole("customer");
+      }
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [selectedListingId]);
 
   // Global search params
   const [searchParams, setSearchParams] = useState({
